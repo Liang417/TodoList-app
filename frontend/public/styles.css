@@ -1,0 +1,372 @@
+:root {
+    --ff-sans: "Josefin Sans", sans-serif;
+    --base-font: 1.6rem;
+    --fw-normal: 400;
+    --fw-bold: 700;
+    --img-bg: url("./images/bg-dark.jpg");
+    --color-primary: hsl(0, 0%, 98%);
+    --color-white: hsl(0, 0%, 100%);
+    --color-page-bg: hsl(235, 21%, 11%);
+    --color-card-bg: hsl(235, 24%, 19%);
+    --color-blue: hsl(220, 98%, 61%);
+    --color-green: hsl(192, 100%, 67%);
+    --color-pink: hsl(280, 87%, 65%);
+    --color-gb-1: hsl(236, 33%, 92%);
+    --color-gb-2: hsl(234, 39%, 75%);
+    --color-gb-3: hsl(234, 11%, 52%);
+    --color-gb-4: hsl(237, 12%, 36%);
+    --color-gb-5: hsl(233, 14%, 35%);
+    --color-gb-6: hsl(235, 19%, 24%);
+    --color-box-shadow: hsl(0, 0%, 0%, 0.1);
+}
+
+body.light {
+    --img-bg: url("../images/bg-light.jpg");
+    --color-primary: hsl(243, 12%, 30%);
+    --color-page-bg: rgb(218, 218, 218);
+    --color-card-bg: hsl(0, 0%, 100%);
+    --color-gb-1: hsl(240, 8%, 24%);
+    --color-gb-2: hsl(243, 12%, 30%);
+    --color-gb-3: hsl(252, 6%, 83%);
+    --color-gb-4: hsl(237, 10%, 64%);
+    --color-gb-5: hsl(252, 9%, 73%);
+    --color-gb-6: hsl(252, 21%, 94%);
+}
+
+/* RESETS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    position: relative;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    user-select: none;
+}
+
+/* BODY */
+
+body {
+    background: var(--color-page-bg) var(--img-bg) fixed no-repeat 0% 0% / 100vw 100vh;
+    padding-top: 8rem;
+    width: min(85%, 54rem);
+    margin: auto;
+    font: var(--fw-normal) var(--base-font) var(--ff-sans)
+}
+
+/* INPUT AND BUTTON*/
+
+input,
+button {
+    font: inherit;
+    border: 0;
+    background: transparent;
+}
+
+input:focus,
+button:focus {
+    outline: 0;
+}
+
+button {
+    display: flex;
+    user-select: none;
+}
+
+/* CARDS  */
+
+.card {
+    background-color: var(--color-card-bg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.8rem;
+    gap: 2rem;
+}
+
+/* HEADER'S CARD */
+
+header.card {
+    background: transparent;
+    padding: 0;
+    align-items: flex-start;
+}
+
+header.card h1 {
+    color: var(--color-white);
+    letter-spacing: 1.3rem;
+    font-weight: var(--fw-bold);
+    font-size: calc(var(--base-font) * 2);
+}
+
+/* ADD CARD */
+
+.add {
+    margin: 4rem 0 2.5rem 0;
+    border-radius: 0.5rem;
+}
+
+.add .cb-container #add-btn {
+    color: var(--color-gb-2);
+    font-size: var(--base-font);
+    transition: color 0.3s ease;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.add .cb-container:hover {
+    background: var(--color-blue);
+    transition: background 0.3s ease;
+}
+
+.add .cb-container:active {
+    transform: scale(1.25);
+}
+
+.add .cb-container:hover #add-btn {
+    color: var(--color-white);
+}
+
+.add .txt-container {
+    flex: 1;
+}
+
+.add .txt-container .txt-input {
+    color: var(--color-gb-1);
+    padding: 0.7rem 0;
+    width: 100%;
+}
+
+.add .txt-container .txt-input::placeholder {
+    color: var(--color-gb-5);
+    font-weight: var(--fw-normal);
+}
+
+body.light .add .txt-container .txt-input {
+    font-weight: var(--fw-bold);
+}
+
+/* CHECKBOX CONTAINER AND FIELD */
+
+.card .cb-container {
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 0.1rem solid var(--color-gb-5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.card .cb-container .cb-input {
+    transform: scale(1.8);
+    opacity: 0;
+}
+
+.card .cb-container .check {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+/* CHECKED CARD */
+
+.card .cb-container .cb-input:checked+.check {
+    background: url("../images/icon-check.svg"),
+        linear-gradient(45deg, var(--color-green), var(--color-pink));
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* TODOS CONTAINER */
+
+.todos>* {
+    transition: 0.4s ease;
+}
+
+.todos .card:first-child {
+    border-radius: 0.5rem 0.5rem 0 0;
+}
+
+.todos>*+* {
+    border-top: 0.2rem solid var(--color-gb-6);
+}
+
+.content {
+    flex: 1;
+    color: var(--color-gb-2)
+}
+
+.content:hover {
+    color: var(--color-gb-1)
+}
+
+.todos .card[draggable] {
+    cursor: move;
+}
+
+body.light .todos {
+    box-shadow: 0 0 2rem 0.4rem var(--color-box-shadow);
+}
+
+/* COMPLETED ITEM*/
+
+.todos .card.checked .content {
+    text-decoration: line-through;
+    color: var(--color-gb-3);
+    text-decoration-color: var(--color-gb-3);
+}
+
+/* CLEAR CONTAINER */
+
+.clear {
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.todos .card:hover .clear {
+    opacity: 1;
+    pointer-events: all;
+}
+
+/* STAT CONTAINER */
+
+.stat {
+    border-radius: 0 0 0.5rem 0.5rem;
+    border-top: 0.2rem solid var(--color-gb-6);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    font-size: calc(var(--base-font) - 0.3rem);
+}
+
+.stat * {
+    color: var(--color-gb-4);
+}
+
+body.light .stat {
+    box-shadow: 0 1rem 2rem -0.4rem var(--color-box-shadow);
+}
+
+/* FILTER BUTTONS */
+
+.stat .filter {
+    display: flex;
+    justify-content: space-between;
+    font-weight: var(--fw-bold);
+}
+
+.stat .filter *:hover {
+    color: var(--color-primary);
+}
+
+.stat .filter .on {
+    color: var(--color-blue);
+}
+
+/* CORNERS */
+
+.stat .corner:last-child {
+    justify-self: end;
+}
+
+.stat .corner button:hover {
+    color: var(--color-primary);
+}
+
+/* FOOTER */
+
+footer {
+    margin: 4rem 0;
+    text-align: center;
+    color: var(--color-gb-1);
+}
+
+/* JAVASCRIPT FUNCTION - STYLES */
+
+/* FILTER TODOS*/
+.todos.active .card.checked,
+.todos.completed .card:not(.checked) {
+    transition: 0.5s;
+    opacity: 0;
+    padding: 0;
+    border: 0;
+    height: 0;
+    pointer-events: none;
+}
+
+/* FALL ANIMATION */
+@keyframes fall {
+    0% {
+        opacity: 0.5;
+        transform: translateX();
+    }
+
+    50% {
+        transform: translateX(25%) rotateZ(40deg);
+        opacity: 0.3;
+    }
+
+    100% {
+        transform: translateX(30%) rotateZ(90deg);
+        opacity: 0
+    }
+}
+
+.todos .card.fall {
+    pointer-events: none;
+    animation: fall 0.2s forwards ease;
+}
+
+/* DRAG AND DROP */
+.todos .card.dragging {
+    opacity: 0.5
+}
+
+@media (max-width:600px) {
+    .stat {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 5rem 2rem;
+    }
+
+    .stat .filter {
+        grid-row: 2/3;
+        grid-column: 1/3;
+        justify-content: space-around;
+        position: relative;
+    }
+
+    .stat .filter::before {
+        content: "";
+        position: absolute;
+        width: calc(100% + 3.5rem);
+        height: 0.2rem;
+        background-color: var(--color-gb-5);
+        top: -3rem;
+        opacity: 0.3;
+    }
+}
