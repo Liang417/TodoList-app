@@ -1,6 +1,6 @@
 # TODO APP
 
-## [Link](http://ec2-54-169-36-218.ap-southeast-1.compute.amazonaws.com/)
+## [Link](http://ec2-3-0-100-98.ap-southeast-1.compute.amazonaws.com/)
 
 ## Screenshots
 
